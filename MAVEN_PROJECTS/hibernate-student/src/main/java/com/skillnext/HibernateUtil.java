@@ -5,11 +5,11 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
 
-    private static SessionFactory sessionFactory;
+    private static SessionFactory factory;
 
     static {
         try {
-            sessionFactory = new Configuration()
+            factory = new Configuration()
                     .configure("hibernate.cfg.xml")
                     .addAnnotatedClass(Student.class)
                     .buildSessionFactory();
@@ -19,6 +19,6 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return factory;
     }
 }
